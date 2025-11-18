@@ -4,7 +4,7 @@
 namespace App\Controllers;
 
 
-use \PDO, \App\Models\BooksRepository;
+use \PDO, \App\Models\BooksRepository, \App\Models\AuthorsRepository;
 
 
 class  PagesController
@@ -13,6 +13,7 @@ class  PagesController
     {
 
         $books = BooksRepository::findAll($connexion, 3);
+        $authors = AuthorsRepository::findAll($connexion, 3);
 
 
         global $content, $title;
