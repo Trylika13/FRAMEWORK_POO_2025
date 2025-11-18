@@ -1,20 +1,23 @@
 <?php
 
 
-namespace App\Controllers\PagesController;
+namespace App\Controllers;
 
 
 use \PDO;
 
 
-function homeAction(PDO $connexion)
+class  PagesController
 {
-    include_once '../app/models/booksModel.php';
-    $books = \App\Models\BooksModel\findAll($connexion, 3);
+    public static function homeAction(PDO $connexion)
+    {
+        include_once '../app/models/booksModel.php';
+        $books = \App\Models\BooksModel\findAll($connexion, 3);
 
 
-    global $content, $title;
-    ob_start();
-    include '../app/views/pages/home.php';
-    $content = ob_get_clean();
+        global $content, $title;
+        ob_start();
+        include '../app/views/pages/home.php';
+        $content = ob_get_clean();
+    }
 }
