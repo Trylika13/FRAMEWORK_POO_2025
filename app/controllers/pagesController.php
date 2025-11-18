@@ -4,15 +4,15 @@
 namespace App\Controllers;
 
 
-use \PDO;
+use \PDO, \App\Models\BooksRepository;
 
 
 class  PagesController
 {
     public static function homeAction(PDO $connexion)
     {
-        include_once '../app/models/booksModel.php';
-        $books = \App\Models\BooksModel\findAll($connexion, 3);
+
+        $books = BooksRepository::findAll($connexion, 3);
 
 
         global $content, $title;
