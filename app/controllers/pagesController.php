@@ -3,20 +3,20 @@
 
 namespace App\Controllers;
 
+use \App\Models\BooksRepository, \App\Models\AuthorsRepository;
 
-use \PDO, \App\Models\BooksRepository, \App\Models\AuthorsRepository;
 
-
-class  PagesController
+class PagesController
 {
-    public static function homeAction(PDO $connexion)
+    public static function homeAction()
     {
 
-        $books = BooksRepository::findAll($connexion, 3);
-        $authors = AuthorsRepository::findAll($connexion, 3);
-
-
         global $content, $title;
+
+        $books = BooksRepository::findAll(3);
+        $authors = AuthorsRepository::findAll(3);
+
+
         ob_start();
         include '../app/views/pages/home.php';
         $content = ob_get_clean();
