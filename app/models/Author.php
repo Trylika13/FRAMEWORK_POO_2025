@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Authors
+class Author
 {
 
     public $id, $firstname, $lastname, $biography, $created_at, $picture;

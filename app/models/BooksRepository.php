@@ -1,8 +1,11 @@
 <?php
 
+
 namespace App\Models;
 
+
 use \PDO, \Core\DB;
+
 
 abstract class BooksRepository
 {
@@ -12,10 +15,21 @@ abstract class BooksRepository
             FROM books
             ORDER BY created_at DESC
             LIMIT :limit;";
-
         $rs = DB::getConnection()->prepare($sql);
         $rs->bindValue(':limit', $limit, PDO::PARAM_INT);
         $rs->execute();
         return $rs->fetchAll(PDO::FETCH_CLASS, Book::class);
+    }
+
+
+    public static function findOneById(int $id): Book
+    {
+        $sql = "SELECT *
+            FROM books
+            WHERE id = :id;";
+        $rs = DB::getConnection()->prepare($sql);
+        $rs->bindValue(':id', $id, PDO::PARAM_INT);
+        $rs->execute();
+        return $rs->fetchObject(Book::class);
     }
 }
