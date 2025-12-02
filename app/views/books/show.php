@@ -9,5 +9,6 @@
         <?php echo $book->author->firstname; ?>
     </li>
     <li>ISBN: <?php echo $book->isbn; ?></li>
+    <li>Category: <?php echo $book->category->name; ?></li>
 </ul>
 <hr />
