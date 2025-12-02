@@ -1,5 +1,5 @@
 {
-  "name": "pascallacroix/framework_poo_2025",
+  "name": "jeang/framework_poo_2025",
   "autoload": {
     "psr-4": {
       "Core\\": "core/",
@@ -9,8 +9,8 @@
   },
   "authors": [
     {
-      "name": "Pascal Lacroix",
-      "email": "p.lacroix@promotion-sociale.be"
+      "name": "Trylika",
+      "email": "jean.g.dev@gmail.com"
     }
   ],
   "require": {}
